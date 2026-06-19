@@ -6,6 +6,13 @@ import { CopyButton } from "./CopyButton";
 
 export const PromptModal = ({ card, onClose }) => {
   useEffect(() => {
+    // Guard on `card`: this component stays mounted at all times in
+    // LibraryPage (only its render output is conditional via the
+    // `if (!card) return null` below), but hooks run before that early
+    // return. Without this guard, body scroll got locked on every page
+    // load regardless of whether the modal was actually open.
+    if (!card) return undefined;
+
     const onEsc = (e) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onEsc);
     document.body.style.overflow = "hidden";
@@ -13,7 +20,7 @@ export const PromptModal = ({ card, onClose }) => {
       document.removeEventListener("keydown", onEsc);
       document.body.style.overflow = "";
     };
-  }, [onClose]);
+  }, [card, onClose]);
 
   if (!card) return null;
 
