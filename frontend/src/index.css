@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --pp-bg: #F9F8F6;
+    --pp-paper: #FFFFFF;
+    --pp-ink: #121212;
+    --pp-ink-soft: #4A4A4A;
+    --pp-brand: #FF6B35;
+    --pp-brand-hover: #E55A2B;
+}
+
+html, body {
+    margin: 0;
+    background-color: var(--pp-bg);
+    color: var(--pp-ink);
+    font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, .pp-display {
+    font-family: 'Outfit', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+}
+
+::selection {
+    background: #121212;
+    color: #FFBF00;
+}
+
+/* Subtle dotted backdrop for that playful editorial feel */
+.pp-dot-grid {
+    background-image: radial-gradient(circle, rgba(18,18,18,0.08) 1px, transparent 1px);
+    background-size: 22px 22px;
+}
+
+.pp-shadow {
+    box-shadow: 6px 6px 0px #121212;
+}
+.pp-shadow-sm {
+    box-shadow: 4px 4px 0px #121212;
+}
+.pp-shadow-lg {
+    box-shadow: 12px 12px 0px #121212;
+}
+.pp-shadow-xs {
+    box-shadow: 2px 2px 0px #121212;
+}
+
+.pp-card {
+    background-color: #FFFFFF;
+    border: 2px solid #121212;
+    border-radius: 1rem;
+    box-shadow: 6px 6px 0px #121212;
+    transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 180ms;
+}
+.pp-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px #121212;
+}
+
+.pp-press {
+    transition: transform 120ms, box-shadow 120ms;
+}
+.pp-press:active {
+    transform: translate(4px, 4px);
+    box-shadow: none !important;
+}
+
+/* Tag chip used in filters */
+.pp-chip {
+    border: 2px solid #121212;
+    border-radius: 9999px;
+    padding: 0.4rem 0.95rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+    background: #fff;
+    color: #121212;
+    cursor: pointer;
+    transition: all 150ms;
+    white-space: nowrap;
+}
+.pp-chip:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px #121212;
+}
+.pp-chip-active {
+    background: #121212;
+    color: #fff;
+}
+
+/* Animated card entrance */
+@keyframes pp-rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.pp-rise {
+    animation: pp-rise 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Sticker badge wobble */
+@keyframes pp-wobble {
+    0%, 100% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+}
+.pp-wobble {
+    animation: pp-wobble 2.6s ease-in-out infinite;
+}
+
+/* Marquee for hero strip */
+@keyframes pp-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.pp-marquee {
+    display: inline-flex;
+    gap: 2.5rem;
+    animation: pp-marquee 28s linear infinite;
+    white-space: nowrap;
+}
