@@ -1,5 +1,6 @@
 # PromptPop — Trending Prompt Library
 
+
 A curated, copy-paste library of trending AI image/video prompts for creators.
 Originally built on Emergent; this is the self-hostable bundle with the
 Emergent-only bits removed and the known bugs fixed (see "What changed" below).
