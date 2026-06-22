@@ -5,7 +5,6 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 import secrets
-import certifi
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict
 from typing import List, Optional
@@ -17,15 +16,11 @@ ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
 # MongoDB connection
+# pymongo 4.x + motor 3.x handle TLS automatically via the SRV connection
+# string — passing tlsCAFile explicitly conflicts with the driver's internal
+# certificate handling and causes TLSV1_ALERT_INTERNAL_ERROR on Atlas.
 mongo_url = os.environ['MONGO_URL']
-# tlsCAFile=certifi.where(): explicitly point at certifi's CA bundle instead
-# of relying on the host's system certificate store. Minimal container
-# images (like Render's) sometimes ship an incomplete/outdated CA store,
-# which causes TLS handshake failures (TLSV1_ALERT_INTERNAL_ERROR) when
-# connecting to MongoDB Atlas even though the connection string itself is
-# correct. This is a no-op on platforms where the system store is already
-# fine (e.g. local Windows dev), so it's safe to always include.
-client = AsyncIOMotorClient(mongo_url, tlsCAFile=certifi.where())
+client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
