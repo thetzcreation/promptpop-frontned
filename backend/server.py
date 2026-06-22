@@ -477,15 +477,20 @@ async def verify_admin(_: bool = Depends(require_admin)):
 
 app.include_router(api_router)
 
-app.add_middleware(
-    CORSMiddleware,
-     allow_origins=[
+cors_origins = os.environ.get("CORS_ORIGINS")
+if cors_origins:
+    allowed_origins = [o.strip() for o in cors_origins.split(",") if o.strip()]
+else:
+    allowed_origins = [
         "https://promptpop-frontned.vercel.app",
         "https://promptpop.vercel.app",
-        "http://localhost:3000"
-    ],
+        "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,
     allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
     allow_methods=["*"],
     allow_headers=["*"],
 )
