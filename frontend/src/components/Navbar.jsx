@@ -49,7 +49,7 @@ export const Navbar = () => {
             form/route if you build that feature later.
           */}
           <a
-            href="mailto:hello@example.com?subject=Prompt%20suggestion%20for%20PromptPop"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdb1Pf4bCBVU3E6aexpgPySB9XSo2SzK8o4PZjs4IPIuYmWsA/viewform?usp=header"
             data-testid="nav-cta"
             className="inline-flex items-center gap-2 bg-[#121212] text-white font-semibold border-2 border-[#121212] rounded-full px-4 py-2 pp-shadow-sm pp-press hover:bg-[#FFBF00] hover:text-[#121212] transition-colors text-sm"
           >
