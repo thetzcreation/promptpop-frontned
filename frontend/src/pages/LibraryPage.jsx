@@ -66,7 +66,7 @@ export default function LibraryPage() {
         <div className="pp-dot-grid absolute inset-0" />
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-14 pb-12 relative">
           <div className="flex flex-wrap gap-2 mb-5">
-            <span className="inline-flex items-center gap-2 bg-[#FFBF00] border-2 border-[#121212] rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider pp-shadow-xs pp-wobble">
+            <span className="inline-flex items-center gap-2 bg-[#fe6416] border-2 border-[#121212] rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider pp-shadow-xs pp-wobble">
               ★ New: 2026 trending pack
             </span>
             <span className="inline-flex items-center gap-2 bg-white border-2 border-[#121212] rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider">
@@ -80,7 +80,7 @@ export default function LibraryPage() {
           >
             Drop your selfie.{" "}
             <span
-              className="px-2 inline-block -rotate-1 border-2 border-[#121212] bg-[#FF6B35] text-white pp-shadow-sm"
+              className="px-2 inline-block -rotate-1 border-2 border-[#121212] bg-[#701ff8] text-white pp-shadow-sm"
             >
               Paste this.
             </span>{" "}
@@ -151,7 +151,7 @@ export default function LibraryPage() {
                 setFilter({ style: "All", platform: "All", use_case: "All" });
                 setSearch("");
               }}
-              className="mt-6 w-full bg-white text-[#121212] font-semibold border-2 border-[#121212] rounded-full px-4 py-2 pp-shadow-sm pp-press hover:bg-[#FFBF00] transition-colors text-sm"
+              className="mt-6 w-full bg-white text-[#121212] font-semibold border-2 border-[#121212] rounded-full px-4 py-2 pp-shadow-sm pp-press hover:bg-[#fe6416] transition-colors text-sm"
             >
               Reset all
             </button>

@@ -39,7 +39,7 @@ export const PromptModal = ({ card, onClose }) => {
           data-testid="modal-close-button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 z-10 bg-white border-2 border-[#121212] rounded-full p-2 pp-shadow-sm pp-press hover:bg-[#FFBF00]"
+          className="absolute top-4 right-4 z-10 bg-white border-2 border-[#121212] rounded-full p-2 pp-shadow-sm pp-press hover:bg-[#fe6416]"
         >
           <X size={18} strokeWidth={2.8} />
         </button>

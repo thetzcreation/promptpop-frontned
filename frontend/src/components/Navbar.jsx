@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Sparkles } from "lucide-react";
+import logo from "../assets/logo/logo.webp";
 
 export const Navbar = () => {
   const loc = useLocation();
@@ -13,16 +14,8 @@ export const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 group" data-testid="nav-logo">
-          <div className="bg-[#FF6B35] border-2 border-[#121212] rounded-xl w-9 h-9 flex items-center justify-center pp-shadow-sm group-hover:rotate-[-6deg] transition-transform">
-            <Sparkles size={18} strokeWidth={3} color="#121212" />
-          </div>
           <div className="flex flex-col leading-none">
-            <span className="font-black text-xl tracking-tight" style={{ fontFamily: "Outfit" }}>
-              TrendyPrompts
-            </span>
-            <span className="text-[10px] font-semibold uppercase tracking-widest text-[#4A4A4A]">
-              Trending prompt library
-            </span>
+           <img src={logo} alt="TrendyPrompts Logo" className="w-64 h-auto" />
           </div>
         </Link>
 
@@ -51,7 +44,7 @@ export const Navbar = () => {
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSdb1Pf4bCBVU3E6aexpgPySB9XSo2SzK8o4PZjs4IPIuYmWsA/viewform?usp=header"
             data-testid="nav-cta"
-            className="inline-flex items-center gap-2 bg-[#121212] text-white font-semibold border-2 border-[#121212] rounded-full px-4 py-2 pp-shadow-sm pp-press hover:bg-[#FFBF00] hover:text-[#121212] transition-colors text-sm"
+            className="inline-flex items-center gap-2 bg-[#121212] text-white font-semibold border-2 border-[#121212] rounded-full px-4 py-2 pp-shadow-sm pp-press hover:bg-[#fe6416] hover:text-[#121212] transition-colors text-sm"
           >
             Drop a prompt
           </a>
